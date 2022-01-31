@@ -1,9 +1,6 @@
 const container = document.querySelector(".container");
 const button = document.querySelector(".clearButton");
-
-button.addEventListener("click", (e) => {
-  //do something
-});
+const gridItem = document.querySelectorAll(".grid-item");
 
 function makeRows(rows, cols) {
   container.style.setProperty("--grid-rows", rows);
@@ -16,10 +13,14 @@ function makeRows(rows, cols) {
 
 makeRows(16, 16);
 
-const gridItem = document.querySelectorAll(".grid-item");
-
 document.querySelectorAll(".grid-item").forEach((item) => {
   item.addEventListener("mouseenter", (e) => {
-    item.className = "black";
+    item.classList.add("black");
+  });
+});
+
+button.addEventListener("click", (e) => {
+  document.querySelectorAll(".grid-item").forEach((item) => {
+    item.classList.remove("black");
   });
 });
